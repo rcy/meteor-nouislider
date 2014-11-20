@@ -6,6 +6,7 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.2.2');
+  api.use('jquery', 'client');
   api.addFiles(['lib/jquery.nouislider.all.js',
                 'lib/jquery.nouislider.css',
                 'lib/jquery.nouislider.pips.css'], 'client');
