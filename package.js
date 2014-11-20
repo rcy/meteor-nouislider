@@ -1,6 +1,6 @@
 Package.describe({
   summary: "noUiSlider is a lightweight jQuery range slider plugin",
-  version: "7.0.7",
+  version: "7.0.7-1",
   git: "https://github.com/rcy/meteor-nouislider"
 });
 
