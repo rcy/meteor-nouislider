@@ -1,3 +1,5 @@
 jQuery noUiSlider packaged for Meteor
 
-see https://github.com/leongersen/noUiSlider
+upstream package: https://github.com/leongersen/noUiSlider
+
+live example: https://nouislider.meteor.com
