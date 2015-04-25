@@ -35,7 +35,7 @@ mongo@1.0.8
 observe-sequence@1.0.3
 ordered-dict@1.0.1
 random@1.0.1
-rcy:nouislider@7.0.7
+rcy:nouislider@7.0.7_2
 reactive-dict@1.0.4
 reactive-var@1.0.3
 reload@1.1.1
