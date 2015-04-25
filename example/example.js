@@ -13,8 +13,12 @@ if (Meteor.isClient) {
         'min': 0,
         'max': 100
       }
-    }).on('change', function (ev, val) {
+    }).on('slide', function (ev, val) {
+      // set real values on 'slide' event
       Session.set('slider', val);
+    }).on('change', function (ev, val) {
+      // round off values on 'change' event
+      Session.set('slider', [Math.round(val[0]), Math.round(val[1])]);
     });
   };
 
