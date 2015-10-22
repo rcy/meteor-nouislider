@@ -6,6 +6,7 @@ if (Meteor.isClient) {
   Session.setDefault("slider", [20, 80]);
 
   Template.hello.rendered = function () {
+
     this.$("#slider").noUiSlider({
       start: Session.get("slider"),
       connect: true,
@@ -20,6 +21,7 @@ if (Meteor.isClient) {
       // round off values on 'change' event
       Session.set('slider', [Math.round(val[0]), Math.round(val[1])]);
     });
+    Session.set('button','Delete');
   };
 
   Template.hello.helpers({
@@ -28,6 +30,9 @@ if (Meteor.isClient) {
     },
     slider: function () {
       return Session.get("slider");
+    },
+    getButton: function() {
+      return Session.get('button')
     }
   });
 
@@ -35,7 +40,29 @@ if (Meteor.isClient) {
     'click button': function () {
       // increment the counter when button is clicked
       Session.set("counter", Session.get("counter") + 1);
-    }
+    },
+    'click #Delete': function() {
+      Session.set('button','Create');
+      $("#slider").noUiSlider_destroy();
+    },
+    'click #Create': function() {
+      Session.set('button','Delete');
+        $("#slider").noUiSlider({
+        start: Session.get("slider"),
+        connect: true,
+        range: {
+          'min': 0,
+          'max': 100
+        }
+      }).on('slide', function (ev, val) {
+        // set real values on 'slide' event
+        Session.set('slider', val);
+      }).on('change', function (ev, val) {
+        // round off values on 'change' event
+        Session.set('slider', [Math.round(val[0]), Math.round(val[1])]);
+      });
+    },
+    
   });
 }
 
